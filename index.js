@@ -1,3 +1,8 @@
+// Important
+// for of loop  // same as for each
+// set get remove clear  Local Storage
+//Object.entries => key and value
+
 //Select ELements
 
 let allSpans = document.querySelectorAll(".buttons span");
@@ -26,6 +31,29 @@ allSpans.forEach(span => {
 });
 
 
+//Handle Clicking on Letters
+// document.addEventListener("click", (e) => {
+// set The Choose Status
+// let theStatus = false;
+// 
+// if (e.target.className === 'letter-box') {
+// 
+// e.target.classList.add("clicked");
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 function showMessage() {
     results.innerHTML = 'Input Cant Be Empty';
 }
@@ -33,7 +61,9 @@ function showMessage() {
 
 function checkItem() {
     if (theInput.value !== '') {
-        if (localStorage.getItem(theInput.value)) {
+        if (localStorage.getItem(theInput.value)) { //Test
+            // console.log(localStorage.getItem(theInput.value));
+
             results.innerHTML = `Found Local Storage Item Called <span>${theInput.value}</span>`;
 
         } else {
@@ -45,6 +75,10 @@ function checkItem() {
     }
 }
 
+
+
+
+
 function addItem() {
     if (theInput.value !== '') {
         localStorage.setItem(theInput.value, "Test");
@@ -54,6 +88,11 @@ function addItem() {
         showMessage();
     }
 }
+
+
+
+
+
 function deleteItem() {
     if (theInput.value !== '') {
         if (localStorage.getItem(theInput.value)) {
@@ -69,10 +108,16 @@ function deleteItem() {
     }
 }
 
+
+
+
+
+
 function showItems() {
     if (localStorage.length) {
         console.log(`Found Elements ${localStorage.length}`);
         results.innerHTML = '';
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
         for (const [key, value] of Object.entries(localStorage)) {
             results.innerHTML += `<span class="keys">${key}</span>`
         }
